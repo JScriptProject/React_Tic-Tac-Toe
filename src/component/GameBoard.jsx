@@ -1,14 +1,15 @@
 import React from "react";
 
-function GameBoard({ board }) {
+function GameBoard({ board, handleSelectedSquare }) {
+    
     return (
-        <div className="gameboard">
-            <ol>
+        <div className="board">
+            <ol className="boardOL">
                 {board.map((row, rowIndex) => (
-                    <li key={rowIndex}>
-                        <ol>
-                            {row.map((playerSymbol, colIndex) => (
-                                <li key={colIndex}>{playerSymbol}</li>
+                    <li className="boardLI" key={rowIndex}>
+                        <ol className="GridOL-inside">
+                            {row.map((symbol, colIndex) => (
+                                <li key={colIndex}><button onClick={()=>handleSelectedSquare(rowIndex, colIndex)} disabled={symbol !== null} >{symbol}</button></li>
                             ))}
                         </ol>
                     </li>

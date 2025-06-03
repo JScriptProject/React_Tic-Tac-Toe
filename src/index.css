@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 *{
   padding:0;
@@ -15,12 +15,13 @@ body{
 }
  
 main{
-  @apply p-5 w-screen h-screen top-0 bg-blue-200 relative flex flex-col items-center gap-10;
+  @apply p-5 w-screen h-full top-0 bg-blue-200 relative flex flex-col items-center gap-10;
 }
 
 .gameboard{
   width: 80%;
-  @apply bg-amber-700;
+  height: max-content;
+  @apply bg-amber-700 rounded-2xl relative;
 }
 
 .players{
@@ -36,7 +37,7 @@ main{
 
 .players ol li{
   border: 1px solid rgb(253, 253, 253);
-  @apply p-4 flex items-center justify-between;
+  @apply p-4 flex items-center justify-between rounded-2xl;
 }
 
 .player{
@@ -58,4 +59,93 @@ input{
 
 .btn{
   @apply cursor-pointer border-none outline-none text-xl text-blue-200;
+}  
+
+.board{
+  width:30vw;
+  height:30vw;
+  margin:auto auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /* background-color: yellow; */
+  margin-block:3rem; 
+ 
+}
+
+.boardOL{
+  width:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:4vw;
+}
+
+.boardLI .GridOL-inside {
+  display: grid;
+  height: 30vw;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap:4vw;
+}
+
+.GridOL-inside li{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+ @apply  bg-blue-400 rounded-2xl;
+
+}
+
+.GridOL-inside button{
+  font-size: 4rem;
+  font-weight:700;
+  height:100%;
+  width:100%;
+  
+}
+
+#log{
+  position:relative;
+}
+
+#log ol{
+  display:flex;
+  align-items: center;
+  flex-direction:column;
+  gap:0.8rem;
+}
+
+#log ol li{
+  @apply text-blue-900 font-bold text-3xl;
+}
+
+.active{
+  @apply bg-amber-900;
+}
+
+.result{
+  background-color: rgba(29, 30, 31, 0.801) ;
+  @apply w-full h-full absolute top-0 rounded-2xl hidden items-center justify-center;
+}
+
+.result-active{
+  @apply flex;
+}
+.modal{
+  @apply p-10 bg-amber-200 rounded-2xl scale-0 transition-all;
+}
+
+.modal-active{
+  @apply scale-100;
+}
+
+.modal h5{
+  @apply text-2xl text-center pb-2;
+}
+.modal h2{
+  @apply text-6xl text-center font-bold pb-3;
+}
+
+.modal button{
+
+  @apply block m-auto py-2 px-3 bg-cyan-400 text-3xl border-2 outline-none rounded-2xl hover:bg-cyan-800 text-gray-800 cursor-pointer hover:text-amber-50 transition-all scale-100;
 }
